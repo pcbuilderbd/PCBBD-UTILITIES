@@ -1,7 +1,7 @@
 # PCBBD UTILITIES DISCORD BOT
-<center>
+<div align="center">
 <img src="https://i.imgur.com/U8lE2Wf.gif">
-<p align="center">An amazing discord bot made for the PC Builder Bangladesh Discord Server. </p>
+An amazing discord bot made for the PC Builder Bangladesh Discord Server
 
 **Developer Website:** https://pcbuilderbd.github.io/   
 **Tech News Website:** https://www.pcbuilderbd.com/
@@ -17,7 +17,7 @@
 | Language| Node.js|
 |DJS Version| 14.12.1|
 
-</center>
+</div>
 
 ## How to run the code
 First [fork the repository](https://github.com/pcbuilderbd/PCBBD-UTILITIES/fork). Then [clone the forked repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#:~:text=From%20the%20list%20of%20repositories,Repository%22%20window%2C%20click%20Clone.) into your local machine.
@@ -64,23 +64,22 @@ Now there are a few ways you could achieve that. But some of the most popular wa
 There are many other options but these are the best options. If you have any problems setting these up, join our [discord server](https://discord.gg/pc-builder-bangladesh-781592241633493003) and we will try our best to solve those issues.
 
 ## Contributors
+<div align="center">
 
 | <img src="https://images-ext-1.discordapp.net/external/3ly9a1DCqVgamSHC0a2EDbMRqar8Sash-M79YD2FxU0/%3Fsize%3D512/https/cdn.discordapp.com/avatars/832922325149810688/0406ad8413ee48cfa6820c8e12c4c1e9.webp?width=394&height=394" height="80px">| [Nadid Wasique [@dataklacatto]](https://github.com/DaTaklaCatto/) |
 | ----------- | ----------- |
 | <img src="https://images-ext-2.discordapp.net/external/sDfwK1piVL_8am4ErvDF_su_wK9MrHlMKE8iokrYs_o/%3Fsize%3D512/https/cdn.discordapp.com/avatars/640562142457888808/6b97c7a7b8f86f23f380b788efebdade.webp?width=200&height=200" height="80px">| [**A.R Zihan [@youroldfriend.]**](https://github.com/A-R-ZIHAN/)|
+</div>
 
 ## Credits
-
-<center>
+<div align="center">
 <img src="https://images-ext-2.discordapp.net/external/J0ma0sYkiXVn9Dn4yMdFTcl5pLVC4fXtB4gO-ReP73o/https/cdn.discordapp.com/icons/952209559286595654/269ef366cbdb96df0f6973bba1fd271e.png" height="80px">
 
 **Command Handler By:** [Odd Coders](https://discord.gg/odd-coders-952209559286595654)
-</center>
-<center>
+
 <img src="https://railway.app/brand/logotype-light.png" height="80px">
 
-**Hosting By:** [Railway](https://railway.app/)
-</center>
-
+**Hosting By:** [Railway](https://railway.app?referralCode=vtUNRi)
+</div>
 
 :copyright: PC Builder Bangladesh 2023 - All rights reserved.
