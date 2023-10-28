@@ -3,9 +3,6 @@ const { ActionRowBuilder, ButtonBuilder } = require('discord.js');
 module.exports = {
   async execute(client) {
     client.on("threadCreate", (thread) => {
-      // Forum Channel ID
-      //const forumChannelId = '1154436432769851560';
-
       if(newThread.type == ChannelType.PublicThread){
         if (newThread.parentId == '1019653016120463400' || newThread.parentId == '1154436432769851560'){ 
           // Custom Buttons
@@ -13,8 +10,8 @@ module.exports = {
             .addComponents(
               new ButtonBuilder()
                 .setCustomId('pc')
-                .setLabel('Computer')
-                .setStyle('Primary'),
+                .setLabel('Build A PC')
+                .setStyle('Danger'),
 
               new ButtonBuilder()
                 .setCustomId('soft')
@@ -37,7 +34,7 @@ module.exports = {
 
             collector.on('collect', (interaction) => {
               if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
-                thread.send({ content: `<@&948991192463458314>, come to the rescue!!` });
+                thread.send({ content: `Experts come to the rescue!!` });
                 message.delete();
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
