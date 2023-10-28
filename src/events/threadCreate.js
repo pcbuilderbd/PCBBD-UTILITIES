@@ -27,37 +27,11 @@ module.exports = {
             content: `Hello <@${thread.ownerId}>, please select one of the following to notify experts of that interest.`,
             components: [actionRow],
           }).then((message) => {
-            const collector = message.createMessageComponentCollector({ max: 1, time: 10000 });
+            const collector = message.createMessageComponentCollector({ max: 2, time: 10000 });
 
             collector.on('collect', (interaction) => {
               if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
-                const actionRowError = new ActionRowBuilder()
-            .addComponents(
-              new ButtonBuilder()
-                .setCustomId('software')
-                .setLabel('Software')
-                .setStyle('Secondary'),
-
-              new ButtonBuilder()
-                .setCustomId('hardware')
-                .setLabel('Hardware')
-                .setStyle('Secondary')
-
-                thread.send({ content: `:construction: **Oops! This feature is not available yet.** Try another option or mention a expert!`, components: [actionRowError] }).then((message) => {
-            const collector2 = message.createMessageComponentCollector({ max: 1, time: 10000 });
-
-            collector2.on('collect', (interaction) => {
-              if (interaction.user.id === thread.ownerId && interaction.customId === 'software') {
-                thread.send({ content: `<@&1154437163044307114> debug!` });
-                message.delete();
-              }
-              if (interaction.user.id === thread.ownerId && interaction.customId === 'hardware') {
-                thread.send({ content: `<@&1154436920424804402>, assemble!` });
-                message.delete();
-              }
-            }
-          })
-            
+                thread.send({ content: `You weren't supposed to click that lol.` })            
                 message.delete();
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
