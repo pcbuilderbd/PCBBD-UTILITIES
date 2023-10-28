@@ -31,14 +31,8 @@ module.exports = {
 
             collector.on('collect', (interaction) => {
               if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
-                try {
-                  thread.send({ content: `:construction: **Oops! This feature is not available yet**` });
-                  message.delete()  
-                }.then(() => {
-                  thread.send([
-                    content: `Hello <@${thread.ownerId}>, please select one of the following to notify experts of that interest.`,
-            components: [actionRow]])
-                });
+                thread.send({ content: `:construction: **Oops! This feature is not available yet.** Try another option or mention a expert!`, components: [actionRow] });
+                message.delete();
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
                 thread.send({ content: `<@&1154437163044307114> debug!` });
