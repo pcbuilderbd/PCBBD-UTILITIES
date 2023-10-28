@@ -10,17 +10,17 @@ module.exports = {
               new ButtonBuilder()
                 .setCustomId('pc')
                 .setLabel('Computer')
-                .setStyle('Primary'),
+                .setStyle('Danger'),
 
               new ButtonBuilder()
                 .setCustomId('soft')
                 .setLabel('Software')
-                .setStyle('Primary'),
+                .setStyle('Secondary'),
 
               new ButtonBuilder()
                 .setCustomId('hard')
                 .setLabel('Hardware')
-                .setStyle('Primary')
+                .setStyle('Secondary')
             );
 
           thread.send({
