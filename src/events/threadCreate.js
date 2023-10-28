@@ -32,7 +32,6 @@ module.exports = {
             collector.on('collect', (interaction) => {
               if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
                 thread.send({ content: `:construction: **Oops! This feature is not available yet**` });
-                message.delete();
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
                 thread.send({ content: `<@&1154437163044307114> debug!` });
