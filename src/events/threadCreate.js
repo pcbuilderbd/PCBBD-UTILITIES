@@ -7,34 +7,32 @@ module.exports = {
         if (newThread.parentId == '1019653016120463400' || newThread.parentId == '1154436432769851560'){ 
           // Custom Buttons
           const actionRow = new ActionRowBuilder()
-            .addComponents(
-              new ButtonBuilder()
+              new ButtonBuilder(
                 .setCustomId('pc')
-                .setLabel('Build A PC')
-                .setStyle('Danger'),
+                .setLabel('Computer')
+                .setStyle('Secondary'),
 
-              new ButtonBuilder()
+
+              new ButtonBuilder(
                 .setCustomId('soft')
                 .setLabel('Software')
-                .setStyle('Primary'),
+                .setStyle('Secondary'),
 
               new ButtonBuilder()
                 .setCustomId('hard')
                 .setLabel('Hardware')
-                .setStyle('Primary')
+                .setStyle('Secondary')
             );
 
-          const mentionAuthor = `<@${thread.ownerId}>`;
-
-          thread.send({
-            content: `Hello ${mentionAuthor}, please select one of the following to notify experts of that interest.`,
+              thread.send({
+            content: `Hello <@${thread.ownerId}>, please select one of the following to notify experts of that interest.`,
             components: [actionRow],
-          }).then((message) => {
+          }).then((message) =>{
             const collector = message.createMessageComponentCollector({ max: 1, time: 10000 });
+                        collector.on('collect', (interaction) => {
 
-            collector.on('collect', (interaction) => {
-              if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
-                thread.send({ content: `Experts come to the rescue!!` });
+                          if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
+                thread.send({ content: `Please wait, an expert will be with you soon!` });
                 message.delete();
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
@@ -46,11 +44,11 @@ module.exports = {
                 message.delete();
               }
             });
-          });
-        }
-      })
 
-      
-    });
-  },
-};
+          })
+
+        }
+      }
+    })
+  }
+}
