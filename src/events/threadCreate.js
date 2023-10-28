@@ -32,7 +32,36 @@ module.exports = {
             collector.on('collect', (interaction) => {
               if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
                 thread.send({ content: `You weren't supposed to click that lol.` });
-                message.reply("Test")
+                const actionRowError = new ActionRowBuilder()
+                .addComponents(
+                  new ButtonBuilder()
+                  .setCustomId("software")
+                  .setLabel("Software")
+                  .setStyle("Secondary")
+
+                  new ButtonBuilder()
+                  .setCustomId("hardware")
+                  .setLabel("Hardware")
+                  .setStyle("Secondary")
+                );
+                message.send({
+                  content: `Sorry for the inconvenience, please try one of these options.`,
+                  components: [actionRowError]
+                }).then((message) => {
+                  const validator = message.createMessageComponentCollector({ max: 1, time: 10000 });
+
+                  validator.on('collect', (interaction) => {
+                    if (interaction.user.id === thread.ownerId && interaction.customId === 'software') {
+                      thread.send({ content: `<@&1154437163044307114> debug!` });
+                      message.delete();
+                    }
+                    if (interaction.user.id === thread.ownerId && interaction.customId === 'hardware') {
+                      thread.send({ content: `<@&1154436920424804402>, assemble!` });
+                      message.delete();
+                    }
+                  })
+                })
+                message.delete();
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
                 thread.send({ content: `<@&1154437163044307114> debug!` });
