@@ -27,11 +27,12 @@ module.exports = {
             content: `Hello <@${thread.ownerId}>, please select one of the following to notify experts of that interest.`,
             components: [actionRow],
           }).then((message) => {
-            const collector = message.createMessageComponentCollector({ max: 2, time: 10000 });
+            const collector = message.createMessageComponentCollector({ max: 1, time: 10000 });
 
             collector.on('collect', (interaction) => {
               if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
-                thread.send({ content: `You weren't supposed to click that lol.` })  
+                thread.send({ content: `You weren't supposed to click that lol.` });
+                message.reply("Test")
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
                 thread.send({ content: `<@&1154437163044307114> debug!` });
