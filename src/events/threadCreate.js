@@ -43,7 +43,7 @@ module.exports = {
                 .setLabel('Hardware')
                 .setStyle('Secondary')
 
-                thread.send({ content: `:construction: **Oops! This feature is not available yet.** Try another option or mention a expert!`, components: [actionRow] }).then((message) => {
+                thread.send({ content: `:construction: **Oops! This feature is not available yet.** Try another option or mention a expert!`, components: [actionRowError] }).then((message) => {
             const collector2 = message.createMessageComponentCollector({ max: 1, time: 10000 });
 
             collector2.on('collect', (interaction) => {
