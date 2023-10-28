@@ -31,7 +31,33 @@ module.exports = {
 
             collector.on('collect', (interaction) => {
               if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
-                thread.send({ content: `:construction: **Oops! This feature is not available yet.** Try another option or mention a expert!`, components: [actionRow] });
+                const actionRowError = new ActionRowBuilder()
+            .addComponents(
+              new ButtonBuilder()
+                .setCustomId('software')
+                .setLabel('Software')
+                .setStyle('Secondary'),
+
+              new ButtonBuilder()
+                .setCustomId('hardware')
+                .setLabel('Hardware')
+                .setStyle('Secondary')
+
+                thread.send({ content: `:construction: **Oops! This feature is not available yet.** Try another option or mention a expert!`, components: [actionRow] }).then((message) => {
+            const collector2 = message.createMessageComponentCollector({ max: 1, time: 10000 });
+
+            collector2.on('collect', (interaction) => {
+              if (interaction.user.id === thread.ownerId && interaction.customId === 'software') {
+                thread.send({ content: `<@&1154437163044307114> debug!` });
+                message.delete();
+              }
+              if (interaction.user.id === thread.ownerId && interaction.customId === 'hardware') {
+                thread.send({ content: `<@&1154436920424804402>, assemble!` });
+                message.delete();
+              }
+            }
+          })
+            
                 message.delete();
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
