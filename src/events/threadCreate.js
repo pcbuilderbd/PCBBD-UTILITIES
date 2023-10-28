@@ -9,18 +9,18 @@ module.exports = {
             .addComponents(
               new ButtonBuilder()
                 .setCustomId('pc')
-                .setLabel('Computer')
-                .setStyle('Primary'),
+                .setLabel('Build A PC')
+                .setStyle('Danger'),
 
               new ButtonBuilder()
                 .setCustomId('soft')
                 .setLabel('Software')
-                .setStyle('Primary'),
+                .setStyle('Secondary'),
 
               new ButtonBuilder()
                 .setCustomId('hard')
                 .setLabel('Hardware')
-                .setStyle('Primary')
+                .setStyle('Secondary')
             );
 
           thread.send({
@@ -31,7 +31,7 @@ module.exports = {
 
             collector.on('collect', (interaction) => {
               if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
-                thread.send({ content: `<@&948991192463458314>, come to the rescue!!` });
+                thread.send({ content: `:construction: **Oops! This feature is not available yet**` });
                 message.delete();
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
