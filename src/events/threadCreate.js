@@ -1,38 +1,37 @@
-const { ActionRowBuilder, ButtonBuilder } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ChannelType } = require('discord.js');
 
 module.exports = {
   async execute(client) {
-    client.on("threadCreate", (thread) => {
-      if(newThread.type == ChannelType.PublicThread){
-        if (newThread.parentId == '1019653016120463400' || newThread.parentId == '1154436432769851560'){ 
-          // Custom Buttons
+    client.on("threadCreate", async (thread) => {
+      if (thread.type === ChannelType.PublicThread) {
+        if (thread.parentId === '1019653016120463400' || thread.parentId == '1154436432769851560') {
           const actionRow = new ActionRowBuilder()
-              new ButtonBuilder(
+            .addComponents(
+              new ButtonBuilder()
                 .setCustomId('pc')
                 .setLabel('Computer')
-                .setStyle('Secondary'),
+                .setStyle('Primary'),
 
-
-              new ButtonBuilder(
+              new ButtonBuilder()
                 .setCustomId('soft')
                 .setLabel('Software')
-                .setStyle('Secondary'),
+                .setStyle('Primary'),
 
               new ButtonBuilder()
                 .setCustomId('hard')
                 .setLabel('Hardware')
-                .setStyle('Secondary')
+                .setStyle('Primary')
             );
 
-              thread.send({
+          thread.send({
             content: `Hello <@${thread.ownerId}>, please select one of the following to notify experts of that interest.`,
             components: [actionRow],
-          }).then((message) =>{
+          }).then((message) => {
             const collector = message.createMessageComponentCollector({ max: 1, time: 10000 });
-                        collector.on('collect', (interaction) => {
 
-                          if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
-                thread.send({ content: `Please wait, an expert will be with you soon!` });
+            collector.on('collect', (interaction) => {
+              if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
+                thread.send({ content: `Please wait, Experts will come to the rescue!!` });
                 message.delete();
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
@@ -44,11 +43,9 @@ module.exports = {
                 message.delete();
               }
             });
-
-          })
-
+          });
         }
       }
-    })
+    });
   }
 }
