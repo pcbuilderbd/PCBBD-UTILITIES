@@ -31,7 +31,7 @@ module.exports = {
 
             collector.on('collect', (interaction) => {
               if (interaction.user.id === thread.ownerId && interaction.customId === 'pc') {
-                thread.send({ content: `Please wait, Experts will come to the rescue!!` });
+                thread.send({ content: `<@&1167997180443902052> come to the rescue!!` });
                 message.delete();
               }
               if (interaction.user.id === thread.ownerId && interaction.customId === 'soft') {
